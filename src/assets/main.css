@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Old Standard TT';
+  src: url('./fonts/OldStandardTT-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Luxurius Script';
+  src: url('./fonts/LuxuriousScript-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Roca';
+  src: url('./fonts/Roca-Thin.ttf');
+}
