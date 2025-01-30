@@ -7,7 +7,7 @@
     </template>
     <template #container>
       <div
-        class="h-screen flex flex-col gap-10 lg:gap-0 lg:grid md:grid-rows-1 md:grid-cols-4 items-center justify-center lg:py-0 lg:px-32 xl:px-44 select-none">
+        class="h-screen flex flex-col gap-5 lg:gap-0 lg:grid md:grid-rows-1 md:grid-cols-4 items-center justify-center lg:py-0 lg:px-32 xl:px-44 select-none">
         <div ref="coupleImage" class="flex lg:col-span-2 ">
 
           <div
@@ -87,11 +87,11 @@ export default defineComponent({
     const secondsEl = ref(null)
 
     onMounted(() => {
-      const titleElements = [titleOne.value, coupleNames.value, titleDivision.value, titleTwo.value]
+      const titleElements = [titleOne.value, coupleNames.value, titleTwo.value]
       const countdownElements = [daysEl.value, hoursEl.value, minutesEl.value, secondsEl.value]
 
       const tl = gsap.timeline({
-        delay: 0.2
+        delay: 1
       })
 
       gsap.set(backgroundEl.value, {
@@ -103,10 +103,15 @@ export default defineComponent({
         opacity: 0
       })
 
+      gsap.set(titleDivision.value, {
+        opacity: 0,
+        y: 10,
+      })
+
       tl.to(backgroundEl.value, {
         opacity: 1,
         y: 0,
-        duration: 2,
+        duration: 1,
         ease: 'expo.in'
       })
 
@@ -125,10 +130,16 @@ export default defineComponent({
           ease: 'expo.out',
           y: 0,
           rotationX: 0,
-          duration: 2,
+          duration: 1,
           stagger: 0.1,
         }
       )
+
+      tl.to(titleDivision.value, {
+        opacity: 1,
+        duration: 0.3,
+        y: 0,
+      })
 
       tl.fromTo(
         countdownElements,
